@@ -1,17 +1,14 @@
-import os
-from typing import Dict, Tuple
-from src.utils import read_data_from_csv
 from src.ranking import get_pareto_orderings, exact_minimal_family_optimized
-
+from src.cli.cli import get_data_from_user_input
+from src.utils import visualize_result
 
 def main():
-    filepath = os.path.join('data', 'data1.csv')
-    data = read_data_from_csv(filepath)
+    data = get_data_from_user_input()
+    if data is None:
+        return
     elements, orderings = get_pareto_orderings(data)
     result = exact_minimal_family_optimized(elements, orderings)
-
-    print(result)
-
+    visualize_result(result)
 
 if __name__ == "__main__":
     main()

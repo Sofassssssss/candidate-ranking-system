@@ -1,1 +1,2 @@
 from .csv_reader import read_data_from_csv
+from .vizualize_result import visualize_result
