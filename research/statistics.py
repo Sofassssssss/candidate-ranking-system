@@ -68,7 +68,7 @@ def main():
         x_values=cands_x,
         y_times=times_exp1,
         x_label="Количество альтернатив (кандидатов)",
-        title="Зависимость времени работы от числа кандидатов\n(при фиксированном числе критериев M=5)",
+        title="Зависимость времени работы от числа кандидатов\n(при фиксированном числе критериев F=5)",
         filename="statistics/graph_1_candidates.png"
     )
 
@@ -85,7 +85,7 @@ def main():
         x_values=crits_x,
         y_times=times_exp2,
         x_label="Количество критериев",
-        title="Зависимость времени работы от числа критериев\n(при фиксированном числе кандидатов N=7)",
+        title="Зависимость времени работы от числа критериев\n(при фиксированном числе кандидатов A=7)",
         filename="statistics/graph_2_criteria.png"
     )
 
@@ -96,12 +96,12 @@ def main():
         path = os.path.join(base_dir, f"exp3_sq_{s}.csv")
         t = measure_average_time(path, num_runs=10)
         times_exp3.append(t)
-        print(f"  Размерность (N=M): {s:2d} -> Среднее время: {t:.5f} сек")
+        print(f"  Размерность (A=F): {s:2d} -> Среднее время: {t:.5f} сек")
 
     plot_and_save(
         x_values=sq_x,
         y_times=times_exp3,
-        x_label="Размерность задачи (N = M)",
+        x_label="Размерность задачи (A = F)",
         title="Рост времени при одновременном увеличении\nчисла альтернатив и критериев",
         filename="statistics/graph_3_candidates_and_criteria.png"
     )
