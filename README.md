@@ -64,4 +64,4 @@
 
 ### Пример результата программы:
 
-<img src="img.png" width="500">
+<img src="result_example.png" width="500">
