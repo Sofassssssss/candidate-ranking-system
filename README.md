@@ -65,5 +65,5 @@
 ### Пример результата программы:
 
 <p align="center">
-<img src="result_example.png" width="500" style="border: 1px solid black; border-radius: 10px; padding: 5px;">
+<kbd><img src="result_example.png" width="500"></kbd>
 </p>
