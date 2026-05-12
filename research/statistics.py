@@ -56,7 +56,7 @@ def main():
     print("Начинаем профилирование алгоритма (это может занять некоторое время)...\n")
 
     print("Эксперимент 1: Зависимость от числа кандидатов...")
-    cands_x = [5, 6, 7, 8, 9, 10, 11]
+    cands_x = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     times_exp1 = []
     for c in cands_x:
         path = os.path.join(base_dir, f"exp1_cands_{c}.csv")
@@ -85,12 +85,12 @@ def main():
         x_values=crits_x,
         y_times=times_exp2,
         x_label="Количество критериев",
-        title="Зависимость времени работы от числа критериев\n(при фиксированном числе кандидатов A=7)",
+        title="Зависимость времени работы от числа критериев\n(при фиксированном числе кандидатов A=8)",
         filename="statistics/graph_2_criteria.png"
     )
 
     print("\nЭксперимент 3: Синхронный рост (Кандидаты = Критерии)...")
-    sq_x = [5, 6, 7, 8, 9, 10, 11]
+    sq_x = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     times_exp3 = []
     for s in sq_x:
         path = os.path.join(base_dir, f"exp3_sq_{s}.csv")
@@ -106,7 +106,7 @@ def main():
         filename="statistics/graph_3_candidates_and_criteria.png"
     )
 
-    print("\nПрофилирование завершено!")
+    print("\nГрафики построены, они находятся в папке research/statistics!")
 
 
 if __name__ == "__main__":

@@ -18,11 +18,7 @@ def get_data_file_number() -> int | None:
             print("Выход из программы.")
             return None
 
-        if not user_input.isdigit():
-            print("Ошибка: пожалуйста, введите целое число.")
-            continue
-
-        file_number = int(user_input)
+        file_number = user_input
         file_path = f'data/{CANDIDATES_FILE}{file_number}.csv'
 
         if not os.path.isfile(file_path):

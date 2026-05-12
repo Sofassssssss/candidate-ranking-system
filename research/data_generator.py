@@ -12,11 +12,11 @@ def generate_smart_scores(num_candidates: int, num_criteria: int) -> list[list[i
         else:
             latent_skill = 0.5
 
-        base_score = 2 + latent_skill * 6
+        base_score = 2 + latent_skill * 7
 
         scores = []
         for _ in range(num_criteria):
-            noise = random.uniform(-1.0, 2.1)
+            noise = random.gauss(mu=0.0, sigma=0.6)
             final_score = round(base_score + noise)
 
             final_score = max(1, min(10, final_score))
@@ -47,7 +47,7 @@ def generate_data():
     base_dir = "research_data"
     os.makedirs(base_dir, exist_ok=True)
 
-    candidates_list_exp1 = [5, 6, 7, 8, 9, 10, 11]
+    candidates_list_exp1 = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     fixed_criteria = 5
     print("Генерация данных для Эксперимента 1...")
     for cands in candidates_list_exp1:
@@ -63,14 +63,14 @@ def generate_data():
         create_dataset(filepath, fixed_candidates, crits)
         print(f"  Создан: {filepath}")
 
-    square_list_exp3 = [5, 6, 7, 8, 9, 10, 11]
+    square_list_exp3 = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     print("\nГенерация данных для Эксперимента 3...")
     for size in square_list_exp3:
         filepath = os.path.join(base_dir, f"exp3_sq_{size}.csv")
         create_dataset(filepath, size, size)
         print(f"  Создан: {filepath}")
 
-    print("\nВсе тестовые данные успешно сгенерированы в папке 'data/'!")
+    print("\nВсе тестовые данные успешно сгенерированы в папку 'research/research_data'!")
 
 
 if __name__ == "__main__":
