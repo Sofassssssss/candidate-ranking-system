@@ -20,12 +20,12 @@ def visualize_result(linearizations: List[Tuple[str, ...]], output_filename: str
     ax.set_ylim(0, 1)
 
     fig.text(0.5, 0.95, "Ранжированный список кандидатов",
-             ha='center', va='center', fontsize=18, fontweight='bold', family='monospace')
+             ha='center', va='center', fontsize=25, fontweight='bold', family='monospace')
 
     subtext = ("Кандидаты располагаются сверху вниз от лучшего к худшему.\n"
                "Может быть представлено несколько вариантов ранжирований.")
-    fig.text(0.5, 0.88, subtext,
-             ha='center', va='center', fontsize=14, color='#555555', family='monospace')
+    fig.text(0.5, 0.85, subtext,
+             ha='center', va='center', fontsize=20, color='#555555', family='monospace')
 
     if num_cols > 1:
         x_positions = [0.1 + 0.8 * i / (num_cols - 1) for i in range(num_cols)]
@@ -41,7 +41,7 @@ def visualize_result(linearizations: List[Tuple[str, ...]], output_filename: str
         x = x_positions[col_idx]
 
         ax.text(x, 0.85, f"Вариант {col_idx + 1}",
-                ha='center', va='center', fontsize=12, fontweight='bold', color='#6c757d')
+                ha='center', va='center', fontsize=16, fontweight='bold', color='#6c757d')
 
         for row_idx, candidate in enumerate(lin):
             y = y_positions[row_idx]

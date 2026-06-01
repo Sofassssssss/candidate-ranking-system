@@ -34,14 +34,14 @@ def measure_average_time(filepath: str, num_runs: int = 10) -> float:
     return avg_time
 
 
-def plot_and_save(x_values: List[int], y_times: List[float], x_label: str, title: str, filename: str):
+def plot_and_save(x_values: List[int], y_times: List[float], x_label: str, title: str, filename: str, y_label="Время выполнения (секунды)"):
     plt.figure(figsize=(8, 5))
 
     plt.plot(x_values, y_times, marker='o', linestyle='-', color='#1f77b4', linewidth=2, markersize=8)
 
     plt.title(title, fontsize=14, fontweight='bold', pad=15)
     plt.xlabel(x_label, fontsize=12)
-    plt.ylabel("Время выполнения (секунды)", fontsize=12)
+    plt.ylabel(y_label, fontsize=12)
 
     plt.grid(True, linestyle='--', alpha=0.7)
 
@@ -66,10 +66,11 @@ def main():
 
     plot_and_save(
         x_values=cands_x,
-        y_times=times_exp1,
+        y_times=[t * 1000 for t in times_exp1],
         x_label="Количество альтернатив (кандидатов)",
         title="Зависимость времени работы от числа кандидатов\n(при фиксированном числе критериев F=5)",
-        filename="statistics/graph_1_candidates.png"
+        filename="statistics/graph_1_candidates.png",
+        y_label="Время выполнения (мс)"
     )
 
     print("\nЭксперимент 2: Зависимость от числа критериев...")
@@ -83,10 +84,11 @@ def main():
 
     plot_and_save(
         x_values=crits_x,
-        y_times=times_exp2,
+        y_times=[t * 1000 for t in times_exp2],
         x_label="Количество критериев",
         title="Зависимость времени работы от числа критериев\n(при фиксированном числе кандидатов A=8)",
-        filename="statistics/graph_2_criteria.png"
+        filename="statistics/graph_2_criteria.png",
+        y_label="Время выполнения (мс)"
     )
 
     print("\nЭксперимент 3: Синхронный рост (Кандидаты = Критерии)...")
